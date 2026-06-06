@@ -308,7 +308,7 @@ def _print_agent_help() -> None:
                 "flag --cu-file-types:str opt :: comma-separated file types routed to Content Understanding",
                 "ex markitdown example.pdf",
                 "ex markitdown example.pdf -o example.md",
-                "ex cat example.html | markitdown --extension html",
+                "ex Get-Content example.html -Raw | markitdown --extension html",
             ]
         )
     )

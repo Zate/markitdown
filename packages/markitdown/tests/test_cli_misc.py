@@ -38,6 +38,7 @@ def test_agent_help_outputs_ahf_without_running_conversion() -> None:
     )
 
     assert result.returncode == 0, f"CLI exited with error: {result.stderr}"
+    assert result.stderr == ""
     assert result.stdout.startswith(
         "ah1 markitdown :: convert files and streams to markdown\n"
     )
@@ -64,6 +65,8 @@ def test_agent_help_outputs_ahf_without_running_conversion() -> None:
         in result.stdout
     )
     assert "ex markitdown example.pdf -o example.md" in result.stdout
+    assert "ex Get-Content example.html -Raw | markitdown --extension html" in result.stdout
+    assert "ex cat example.html | markitdown --extension html" not in result.stdout
     assert "plain text that must not be converted" not in result.stdout
 
 

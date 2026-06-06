@@ -2,6 +2,15 @@
 #
 # SPDX-License-Identifier: MIT
 
+import warnings
+
+warnings.filterwarnings(
+    "ignore",
+    message="Couldn't find ffmpeg or avconv - defaulting to ffmpeg, but may not work",
+    category=RuntimeWarning,
+    module="pydub.utils",
+)
+
 from .__about__ import __version__
 from ._markitdown import (
     MarkItDown,
